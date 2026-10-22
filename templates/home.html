@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChurnPredict · Customer care insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#243247;--muted:#718096;--line:#e5eaf1;--blue:#4169e1;--blue-soft:#edf2ff;--green:#21865b;--green-soft:#e9f8f0;--red:#c24c59;--red-soft:#fff0f1;--amber:#986b18;--amber-soft:#fff7e4;--shadow:0 8px 28px rgba(34,52,84,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px 'DM Sans',sans-serif;line-height:1.55}
+button,input,select{font:inherit}button{cursor:pointer}.top{background:#fff;border-bottom:1px solid var(--line);padding:17px max(22px,calc((100% - 1380px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:var(--blue-soft);display:grid;place-items:center;color:var(--blue);font-size:22px}.brand h2{font:800 19px Manrope;margin:0;letter-spacing:-.5px}.brand h2 span{color:var(--blue)}.brand small{color:var(--muted);font-size:11px}.pill{border:1px solid #d8eee2;color:var(--green);background:#f2fbf6;padding:8px 12px;border-radius:99px;font-size:12px;font-weight:700}.wrap{max-width:1380px;margin:auto;padding:30px 22px 45px}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:24px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--blue);text-transform:uppercase}.hero h1{font:800 clamp(25px,3vw,34px) Manrope;letter-spacing:-1px;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:720px}.hero-tag{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;color:#586a82;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}.stat,.card{background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}.stat{padding:17px 19px}.stat-label{font-size:12px;color:var(--muted)}.stat-value{font:800 25px Manrope;margin-top:4px}.stat-note{font-size:11px;color:#8b98aa;margin-top:2px}.columns{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:20px;align-items:start}.card{padding:23px;margin-bottom:18px}.card-title{display:flex;align-items:center;gap:11px;margin-bottom:5px}.icon{width:37px;height:37px;display:grid;place-items:center;border-radius:11px;background:var(--blue-soft);color:var(--blue);font-size:18px}.card h2{font:700 17px Manrope;margin:0}.desc{color:var(--muted);font-size:12px;margin:0 0 20px 48px}.section{font-size:10px;letter-spacing:1.4px;color:#8290a4;font-weight:800;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:9px;margin:23px 0 14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-size:12px;font-weight:700;color:#536176;margin-bottom:6px}.field input,.field select{width:100%;height:42px;border:1px solid #dce3ed;border-radius:10px;background:#fbfcfe;padding:0 11px;color:#26364b;outline:none}.field input:focus,.field select:focus{border-color:#7c98f3;box-shadow:0 0 0 3px #edf1ff}.hint{font-size:10px;color:#8995a7;margin-top:4px}.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:800;background:var(--blue);color:#fff;box-shadow:0 5px 13px #4169e122}.btn:hover{filter:brightness(.96)}.btn.secondary{background:#edf2ff;color:#3657bd;box-shadow:none;border:1px solid #dce5ff}.btn.ghost{background:#f5f7fa;color:#536176;box-shadow:none;border:1px solid var(--line)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.wide{width:100%;margin-top:20px}.notice{border:1px solid #f0dca6;background:var(--amber-soft);color:#79591a;padding:12px 14px;border-radius:11px;margin-bottom:15px;font-size:12px}.flash{padding:11px 14px;border-radius:10px;margin-bottom:12px;font-size:12px}.flash.error{background:var(--red-soft);color:var(--red)}.flash.success{background:var(--green-soft);color:var(--green)}.result{border:1px solid var(--line);border-radius:15px;padding:20px;margin-top:16px;background:#fbfcff}.result.high{background:var(--red-soft);border-color:#f5d5d8}.result.low{background:var(--green-soft);border-color:#ccebd9}.result h3{font:800 22px Manrope;margin:4px 0 8px}.risk{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.prob{font:800 30px Manrope}.muted{color:var(--muted);font-size:12px}.bar{height:8px;background:#e8edf5;border-radius:99px;overflow:hidden;margin:9px 0 13px}.bar span{height:100%;display:block;background:var(--blue);border-radius:99px}.result.high .bar span{background:#d85d6a}.result.low .bar span{background:#36a875}.list{padding-left:19px;margin:9px 0 0}.list li{margin:7px 0}.item-list{display:grid;gap:10px;margin-top:14px}.item{border:1px solid var(--line);border-radius:11px;padding:12px 13px;background:#fff}.item strong{display:block;font-size:12px}.item p{margin:4px 0 0;color:var(--muted);font-size:12px}.positive{color:#c24c59}.negative{color:#21865b}.tag{display:inline-block;font-size:10px;font-weight:800;border-radius:99px;padding:4px 8px;background:#f0f3f8;color:#68778d}.table-wrap{overflow:auto;margin-top:15px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);white-space:nowrap}th{background:#f7f9fc;color:#718096;font-size:10px;text-transform:uppercase;letter-spacing:.7px}td{color:#40516a}.risk-high{color:var(--red);font-weight:800}.risk-low{color:var(--green);font-weight:800}.empty{padding:22px;background:#f8faff;border:1px dashed #d9e2f0;border-radius:12px;color:var(--muted);font-size:12px}.footer{text-align:center;color:#98a3b2;font-size:11px;padding:14px}.row-actions{display:flex;gap:8px;align-items:end;flex-wrap:wrap}.row-actions .field{min-width:180px;flex:1}
+@media(max-width:1000px){.columns{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{align-items:flex-start;flex-direction:column}.hero-tag{white-space:normal}}
+@media(max-width:560px){.wrap{padding:20px 12px}.top{padding:13px}.pill{display:none}.card{padding:16px}.grid{gap:12px 9px}.field input,.field select{font-size:12px;padding:0 8px}.stats{gap:9px}.stat{padding:13px}.stat-value{font-size:21px}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand"><div class="logo">✳</div><div><h2>Churn<span>Predict</span></h2><small>Customer care & retention insights</small></div></div>
+ <div class="pill">● &nbsp; Prediction service</div>
+</header>
+<main class="wrap">
+ <section class="hero"><div><div class="eyebrow">Customer intelligence</div><h1>Understand the people behind the numbers.</h1><p>Explore churn risk, understand the model's signals, and find thoughtful ways to improve the customer experience.</p></div><div class="hero-tag">✦ &nbsp; Machine-learning decision support</div></section>
+ {% for error in load_errors %}<div class="notice">{{ error }}</div>{% endfor %}
+ {% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}{% endwith %}
+ <section class="stats">
+  <div class="stat"><div class="stat-label">Customers in dataset</div><div class="stat-value">{{ stats.rows }}</div><div class="stat-note">Rows loaded from your CSV</div></div>
+  <div class="stat"><div class="stat-label">Available columns</div><div class="stat-value">{{ stats.columns }}</div><div class="stat-note">Fields in the dataset</div></div>
+  <div class="stat"><div class="stat-label">Actual churn labels</div><div class="stat-value">{{ stats.churn_count if stats.churn_count is not none else '—' }}</div><div class="stat-note">{% if stats.target %}Target: {{ stats.target }}{% else %}No recognized target column{% endif %}</div></div>
+  <div class="stat"><div class="stat-label">Actual non-churn labels</div><div class="stat-value">{{ stats.retained_count if stats.retained_count is not none else '—' }}</div><div class="stat-note">Counts are dataset labels, not model predictions</div></div>
+ </section>
+ {% if stats.churn_rate is not none %}
+ <section class="card">
+  <div class="card-title"><div class="icon">▥</div><h2>Churn overview</h2></div>
+  <p class="desc">Churn rate and contract comparison based only on rows with known labels in the loaded CSV.</p>
+  <div class="stat" style="margin-bottom:16px"><div class="stat-label">Churn rate among labeled customers</div><div class="stat-value">{{stats.churn_rate}}%</div><div class="stat-note">{{stats.churn_count}} churn labels out of {{stats.churn_count + stats.retained_count}} recognized labels</div></div>
+  {% if stats.contract_breakdown %}<div class="item-list">{% for item in stats.contract_breakdown %}<div class="item"><strong>{{item.contract}} <span style="float:right">{{item.rate}}%</span></strong><div class="bar"><span style="width:{{item.rate}}%"></span></div><p>{{item.count}} labeled customers</p></div>{% endfor %}</div>{% endif %}
+ </section>
+ {% endif %}
+ <section class="card">
+  <div class="card-title"><div class="icon">↗</div><h2>Model health check</h2></div>
+  <p class="desc">Calculate metrics against known labels in the loaded customer CSV. These are a fair test score only if the CSV was not used to train the model.</p>
+  <form action="/evaluate-model" method="post"><button class="btn secondary" type="submit">Calculate evaluation metrics</button></form>
+  {% if evaluation is defined %}
+   <div class="stats" style="margin-top:18px">
+    <div class="stat"><div class="stat-label">Accuracy</div><div class="stat-value">{{evaluation.accuracy}}%</div></div><div class="stat"><div class="stat-label">Precision</div><div class="stat-value">{{evaluation.precision}}%</div></div><div class="stat"><div class="stat-label">Recall</div><div class="stat-value">{{evaluation.recall}}%</div></div><div class="stat"><div class="stat-label">F1-score</div><div class="stat-value">{{evaluation.f1}}%</div></div>
+   </div>
+   <p class="muted">Evaluated {{evaluation.count}} labeled rows; skipped {{evaluation.skipped}} rows. Confusion matrix (actual rows × predicted columns):</p>
+   <div class="table-wrap"><table><thead><tr><th></th><th>Predicted retained</th><th>Predicted churn</th></tr></thead><tbody><tr><th>Actual retained</th><td>{{evaluation.tn}} · true negatives</td><td>{{evaluation.fp}} · false positives</td></tr><tr><th>Actual churn</th><td>{{evaluation.fn}} · false negatives</td><td>{{evaluation.tp}} · true positives</td></tr></tbody></table></div>
+  {% endif %}
+ </section>
+ <div class="columns">
+  <section class="card">
+   <div class="card-title"><div class="icon">♙</div><h2>Customer profile</h2></div>
+   <p class="desc">Enter a customer manually, or load someone from your dataset and edit their details before testing a change.</p>
+   <form action="/load-customer" method="post" class="row-actions">
+    <div class="field"><label for="dataset_index">Choose a customer from CSV</label><select id="dataset_index" name="dataset_index"><option value="">Select a dataset row…</option>{% for item in dataset_customers %}<option value="{{ item.index }}" {% if selected_dataset|string == item.index|string %}selected{% endif %}>{{ item.label }} · row {{ item.index + 1 }}</option>{% endfor %}</select></div>
+    <button class="btn secondary" type="submit">Load customer</button>
+   </form>
+   <form action="/predict" method="post" id="customerForm">
+    <input type="hidden" name="dataset_index" value="{{ selected_dataset or '' }}">
+    <div class="section">01 · Profile</div><div class="grid">
+     <div class="field"><label for="query1">Senior citizen</label><select id="query1" name="query1"><option value="0" {% if values.query1|string == '0' %}selected{% endif %}>No</option><option value="1" {% if values.query1|string == '1' %}selected{% endif %}>Yes</option></select></div>
+     <div class="field"><label for="query4">Gender</label><select id="query4" name="query4">{% for v in category_options.gender %}<option value="{{v}}" {% if values.query4|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     <div class="field"><label for="query5">Partner</label><select id="query5" name="query5">{% for v in category_options.Partner %}<option value="{{v}}" {% if values.query5|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     <div class="field"><label for="query6">Dependents</label><select id="query6" name="query6">{% for v in category_options.Dependents %}<option value="{{v}}" {% if values.query6|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+    </div>
+    <div class="section">02 · Billing & relationship</div><div class="grid">
+     <div class="field"><label for="query2">Monthly charges</label><input type="number" min="0" step="any" id="query2" name="query2" value="{{values.query2}}" required></div>
+     <div class="field"><label for="query3">Total charges</label><input type="number" min="0" step="any" id="query3" name="query3" value="{{values.query3}}" required></div>
+     <div class="field"><label for="query16">Contract</label><select id="query16" name="query16">{% for v in category_options.Contract %}<option value="{{v}}" {% if values.query16|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     <div class="field"><label for="query19">Tenure (months)</label><input type="number" min="1" max="72" id="query19" name="query19" value="{{values.query19}}" required><div class="hint">Use 1–72 months to match this model's training setup.</div></div>
+     <div class="field"><label for="query17">Paperless billing</label><select id="query17" name="query17">{% for v in category_options.PaperlessBilling %}<option value="{{v}}" {% if values.query17|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     <div class="field"><label for="query18">Payment method</label><select id="query18" name="query18">{% for v in category_options.PaymentMethod %}<option value="{{v}}" {% if values.query18|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+    </div>
+    <div class="section">03 · Services</div><div class="grid">
+     <div class="field"><label for="query7">Phone service</label><select id="query7" name="query7">{% for v in category_options.PhoneService %}<option value="{{v}}" {% if values.query7|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     <div class="field"><label for="query8">Multiple lines</label><select id="query8" name="query8">{% for v in category_options.MultipleLines %}<option value="{{v}}" {% if values.query8|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     <div class="field"><label for="query9">Internet service</label><select id="query9" name="query9">{% for v in category_options.InternetService %}<option value="{{v}}" {% if values.query9|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     {% for id, key, label in [('query10','OnlineSecurity','Online security'),('query11','OnlineBackup','Online backup'),('query12','DeviceProtection','Device protection'),('query13','TechSupport','Tech support'),('query14','StreamingTV','Streaming TV'),('query15','StreamingMovies','Streaming movies')] %}
+     <div class="field"><label for="{{id}}">{{label}}</label><select id="{{id}}" name="{{id}}">{% for v in category_options[key] %}<option value="{{v}}" {% if values[id]|string == v|string %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+     {% endfor %}
+    </div>
+    <div class="actions"><button class="btn" type="submit" id="predictButton">Analyze this customer →</button><button class="btn ghost" type="button" id="resetButton">Reset form</button></div>
+   </form>
+   {% if actual_label is defined and actual_label %}<p class="muted">Dataset's recorded outcome: <strong>{{actual_label}}</strong>. This is separate from the model prediction.</p>{% endif %}
+  </section>
+  <div>
+   <section class="card">
+    <div class="card-title"><div class="icon">✦</div><h2>Prediction & explanation</h2></div>
+    <p class="desc">A helpful signal for prioritizing customer conversations—not a certainty or a judgment about an individual.</p>
+    {% if result %}
+     <div class="result {{ 'high' if result.is_churn else 'low' }}">
+      <div class="risk">Model assessment</div><h3>{{result.prediction}}</h3>
+      {% if result.probability is not none %}<div class="prob">{{"%.1f"|format(result.probability)}}%</div><div class="muted">Estimated probability of the model's churn class</div><div class="bar"><span style="width:{{[0,[result.probability,100]|min]|max}}%"></span></div>{% else %}<p class="muted">This model does not provide probability estimates.</p>{% endif %}
+      <p class="muted">Prediction is based on {{result.feature_count}} encoded input features. Validate important decisions with customer feedback and business context.</p>
+     </div>
+     <div class="section">Why the model may flag this customer</div>
+     {% if result.contributions %}
+      <p class="muted">{{result.shap_note}}</p><div class="item-list">
+      {% for item in result.contributions %}<div class="item"><strong>{{item.feature}} <span class="{{'positive' if item.value > 0 else 'negative'}}">{{item.sign}}{{"%.4f"|format(item.value|abs)}}</span></strong><p>This feature {{item.direction}} the model output for the churn class. Contribution size is on the model output scale, not a percentage.</p></div>{% endfor %}
+      </div>
+     {% else %}<div class="empty">{{result.shap_note}} Install SHAP if you want per-customer explanations. This panel does not substitute generic feature importance for local SHAP values.</div>{% endif %}
+     <div class="section">Thoughtful next steps</div><div class="item-list">{% for rec in result.recommendations %}<div class="item"><strong>Suggested action {{loop.index}}</strong><p>{{rec}}</p></div>{% endfor %}</div>
+    {% else %}
+     <div class="empty"><strong>Your customer summary will appear here.</strong><br>Load a dataset customer or fill in the profile, then select <em>Analyze this customer</em>. We’ll show the prediction, available explanation, and possible next steps.</div>
+    {% endif %}
+   </section>
+   <section class="card">
+    <div class="card-title"><div class="icon">⇧</div><h2>Upload a customer CSV</h2></div>
+    <p class="desc">Predict churn for your own customer file and export the results. Use the same raw feature columns as the model's input dataset; maximum 1,000 rows per upload.</p>
+    <form action="/batch-predict" method="post" enctype="multipart/form-data" class="row-actions"><div class="field"><label for="customer_file">Customer CSV file</label><input id="customer_file" name="customer_file" type="file" accept=".csv,text/csv" required></div><button class="btn" type="submit">Predict uploaded customers</button></form>
+    {% if batch_summary is defined %}
+     <div class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-top:18px"><div class="stat"><div class="stat-label">Rows processed</div><div class="stat-value">{{batch_summary.total}}</div></div><div class="stat"><div class="stat-label">Rows needing review</div><div class="stat-value">{{batch_summary.failed}}</div></div><div class="stat"><div class="stat-label">High risk (≥60%)</div><div class="stat-value">{{batch_summary.high}}</div></div><div class="stat"><div class="stat-label">Probability-weighted monthly revenue exposure</div><div class="stat-value">{{"%.2f"|format(batch_summary.exposure)}}</div><div class="stat-note">Same currency/units as MonthlyCharges; estimate, not guaranteed loss</div></div></div>
+     <div class="actions"><a class="btn" href="/download-batch" style="text-decoration:none">Download predictions CSV</a></div>
+     <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Risk</th><th>Churn probability</th><th>Monthly charges</th><th>Revenue exposure</th><th>Actual label</th><th>Validation note</th></tr></thead><tbody>{% for r in batch_results %}<tr><td>{{r.id}}</td><td class="{{'risk-high' if r.risk == 'High' else 'risk-low' if r.risk == 'Low' else ''}}">{{r.risk}}</td><td>{% if r.probability is not none %}{{"%.1f"|format(r.probability)}}%{% else %}—{% endif %}</td><td>{% if r.monthly_charges is not none %}{{"%.2f"|format(r.monthly_charges)}}{% else %}—{% endif %}</td><td>{% if r.revenue_exposure is not none %}{{"%.2f"|format(r.revenue_exposure)}}{% else %}—{% endif %}</td><td>{{r.actual}}</td><td>{{r.error}}</td></tr>{% endfor %}</tbody></table></div>
+    {% endif %}
+   </section>
+   <section class="card">
+    <div class="card-title"><div class="icon">▤</div><h2>Analyze customers in bulk</h2></div>
+    <p class="desc">Run the model across the first set of rows in your dataset. This can take longer if SHAP is installed.</p>
+    <form action="/analyze-dataset" method="post" class="row-actions"><div class="field"><label for="limit">Number of rows to analyze (max 1,000)</label><input id="limit" name="limit" type="number" min="1" max="1000" value="100"></div><button class="btn secondary" type="submit">Analyze dataset</button></form>
+    {% if analyzed_count is defined %}<p class="muted">Analyzed {{analyzed_count}} dataset rows.</p>{% endif %}
+    {% if dataset_results is defined %}
+    <div class="table-wrap"><table><thead><tr><th>Customer / row</th><th>Model assessment</th><th>Churn probability</th><th>Actual label / note</th><th>Action</th></tr></thead><tbody>
+    {% for r in dataset_results %}<tr><td>{{r.id}}</td><td class="{{'risk-high' if 'Higher' in r.prediction else 'risk-low' if 'Lower' in r.prediction else ''}}">{{r.prediction}}</td><td>{% if r.probability is not none %}{{"%.1f"|format(r.probability)}}%{% else %}—{% endif %}</td><td>{{r.actual}}</td><td><form action="/load-customer" method="post"><input type="hidden" name="dataset_index" value="{{r.index}}"><button class="btn ghost" type="submit">Load / edit</button></form></td></tr>{% endfor %}
+    </tbody></table></div>
+    {% endif %}
+   </section>
+  </div>
+ </div>
+ <div class="footer">ChurnPredict · Built to support thoughtful, evidence-informed customer care.</div>
+</main>
+<script>
+const form=document.getElementById('customerForm');
+document.getElementById('resetButton').addEventListener('click',()=>{window.location.href='/';});
+form.addEventListener('submit',()=>{const b=document.getElementById('predictButton');b.disabled=true;b.textContent='Analyzing customer…';});
+window.addEventListener('pageshow',()=>{const b=document.getElementById('predictButton');if(b){b.disabled=false;b.textContent='Analyze this customer →';}});
+</script>
+</body></html>
