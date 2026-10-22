@@ -1,0 +1,2 @@
+cd "C:\Users\sumit\Desktop\Churn Analysis Files"
+python "app (1).py"
